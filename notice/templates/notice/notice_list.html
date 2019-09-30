@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'app_name_notice_list' %}">Notice Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>title</td>
+    <td>content</td>
+    <td>create_time</td>
+    <td>last_modify</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.title }}</td>
+    <td>{{ object.content }}</td>
+    <td>{{ object.create_time }}</td>
+    <td>{{ object.last_modify }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'app_name_notice_create' %}">Create new Notice</a>
+{% endblock %}
