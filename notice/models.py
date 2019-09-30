@@ -2,10 +2,11 @@ from django.conf import settings
 from django.db import models
 
 class Notice(models.Model):
-    title = models.CharField('标题', max_length=255, null=True, blank=True)
-    content = models.TextField('内容', null=True, blank=True)
-    create_time = models.DateTimeField('创建时间', auto_now_add=True)
-    last_modify = models.DateTimeField('发布时间', auto_now=True)
+    title = models.CharField('标题', max_length=255, null=True, blank=True, help_text='标题')
+    content = models.TextField('内容', null=True, blank=True, help_text='内容')
+    publish_date = models.DateField('发布日期', null=True, blank=True, help_text='发布日期')
+    create_time = models.DateTimeField('创建时间', auto_now_add=True, help_text='创建时间')
+    last_modify = models.DateTimeField('最后修改时间', auto_now=True, help_text='最后修改时间')
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -16,7 +17,7 @@ class Notice(models.Model):
     class Meta:
         verbose_name = '通知公告'
         verbose_name_plural = verbose_name
-        ordering = ('-last_modify',)
+        ordering = ('-publish_date', '-last_modify',)
 
     def __str__(self):
         return "{} {}".format(self.pk, self.title)

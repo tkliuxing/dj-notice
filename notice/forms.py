@@ -5,4 +5,4 @@ from .models import Notice
 class NoticeForm(forms.ModelForm):
     class Meta:
         model = Notice
-        fields = ['title', 'content', 'last_modify', 'user']
+        fields = ['title', 'content', 'user']
