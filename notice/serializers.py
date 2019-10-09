@@ -11,6 +11,7 @@ class NoticeSerializer(serializers.ModelSerializer):
             'pk',
             'title',
             'content',
+            'publish_date',
             'create_time',
             'last_modify',
             'user'
