@@ -8,4 +8,4 @@ class NoticeViewSet(viewsets.ModelViewSet):
 
     queryset = models.Notice.objects.all()
     serializer_class = serializers.NoticeSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
