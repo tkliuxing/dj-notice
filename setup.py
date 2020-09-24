@@ -3,16 +3,15 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="hx-notice",
-    version="0.1",
+    name="dj-notice",
+    version="1.0",
     author='Ronald Bai',
     author_email='tkliuxing@163.com',
-    url='http://git.nmhuixin.com/hxpackage/hx-notice',
+    url='https://github.com/tkliuxing/dj-notice',
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
     install_requires=[
-        'Django>=1.11',
-        'djangorestframework>=3.10'
+        'Django<3.0'
     ],
     python_requires=">=3.5",
     classifiers=[
